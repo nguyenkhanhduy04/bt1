@@ -21,19 +21,18 @@ Unless-stopped: Tương tự như always, nhưng nếu bạn chủ động dùng
 
 **5. Dùng chung 1 Network và File cập nhật**
 Lợi ích: Các container có thể gọi nhau bằng tên service (ví dụ: http://nodered:1880) thay vì dùng IP ảo. Điều này giúp hệ thống ổn định vì IP của container có thể thay đổi sau mỗi lần restart.
-<p
-Sửa Docker Compose:
-services:
-  nodered:
-    networks: [myapp_net]
-  nginx:
-    networks: [myapp_net]
-  tunnel:
-    networks: [myapp_net]
+Sửa Docker Compose:<br>
+services:<br>
+  nodered:<br>
+    networks: [myapp_net]<br>
+  nginx:<br>
+    networks: [myapp_net]<br>
+  tunnel:<br>
+    networks: [myapp_net]<br>
 
-networks:
-  myapp_net:
-    driver: bridge
+networks:<br>
+  myapp_net:<br>
+    driver: bridge<br>
 
 **6. Bảo mật với .env và .gitignore**
 Cách làm: Tạo file .env chứa CF_TOKEN=your_token_here. Trong compose dùng ${CF_TOKEN}. Thêm .env vào .gitignore.
